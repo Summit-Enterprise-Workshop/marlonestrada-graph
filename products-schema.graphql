@@ -1,5 +1,10 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.8", import: ["@key"])
+  @link(url: "https://specs.apollo.dev/federation/v2.8", import: [
+    "@key",
+    "@tag",
+    "@shareable",
+    "@authenticated",
+  ])
 
 type Query {
   """
@@ -25,7 +30,7 @@ type Query {
   """
   Get a specific product by id. Useful for the product details page or checkout page
   """
-  product(id: ID!): Product
+  product(id: ID!): Product @authenticated
 
   """
   Get a specific variant by id. Useful for the product details page or checkout page
