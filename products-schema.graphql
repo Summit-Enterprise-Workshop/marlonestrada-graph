@@ -1,10 +1,5 @@
 extend schema
-  @link(url: "https://specs.apollo.dev/federation/v2.8", import: [
-    "@key",
-    "@tag",
-    "@shareable",
-    "@authenticated",
-  ])
+  @link(url: "https://specs.apollo.dev/federation/v2.8", import: ["@key"])
 
 type Query {
   """
@@ -151,9 +146,9 @@ type Review @key(fields: "id") {
   user: User!
 }
 
-#"""
-#A Subscription for whenever a new review has been added.
-#"""
-#type Subscription {
-#ADD SUBSCRIPTION FIELDS AND RETURN TYPES HERE
-#}
+"""
+A Subscription for whenever a new review has been added.
+"""
+type Subscription {
+  reviewAdded: Review
+}
